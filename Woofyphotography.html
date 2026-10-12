@@ -1,0 +1,509 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woofy Photography | Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        },
+                        dark: {
+                            900: '#0a0a0c',
+                            800: '#121216',
+                            700: '#1a1a22',
+                            600: '#262633',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0c;
+            color: #f3f4f6;
+        }
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        .gallery-item {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+        .glass-card {
+            background: rgba(18, 18, 22, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <i class="fa-solid font-bold text-2xl fa-camera-retro text-amber-500 group-hover:rotate-12 transition-transform duration-300"></i>
+                <span class="font-serif-custom text-2xl font-bold tracking-wider text-white">
+                    WOOFY<span class="text-amber-500">.</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#home" class="hover:text-amber-400 transition-colors py-1">Home</a>
+                <a href="#portfolio" class="hover:text-amber-400 transition-colors py-1">Portfolio</a>
+                <a href="#services" class="hover:text-amber-400 transition-colors py-1">Services</a>
+                <a href="#about" class="hover:text-amber-400 transition-colors py-1">About</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black transition-all duration-300 font-semibold shadow-lg shadow-amber-500/10">Book Now</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gray-800 px-6 pt-4 pb-6 space-y-4">
+            <a href="#home" class="mobile-link block text-lg font-medium hover:text-amber-400">Home</a>
+            <a href="#portfolio" class="mobile-link block text-lg font-medium hover:text-amber-400">Portfolio</a>
+            <a href="#services" class="mobile-link block text-lg font-medium hover:text-amber-400">Services</a>
+            <a href="#about" class="mobile-link block text-lg font-medium hover:text-amber-400">About</a>
+            <a href="#contact" class="mobile-link inline-block mt-2 w-full text-center px-5 py-2.5 rounded-full bg-amber-500 text-black font-semibold">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2000&q=80" 
+                 alt="Camera background" 
+                 class="w-full h-full object-cover object-center opacity-30 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-widest mb-6">
+                Capturing Unforgettable Memories
+            </span>
+            <h1 class="font-serif-custom text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Woofy <span class="italic text-amber-500">Photography</span>
+            </h1>
+            <p class="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Weddings • Portraits • Events • Birthdays • Anniversaries • Vehicle Shoots
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-400 text-black font-semibold tracking-wide transition-all shadow-lg shadow-amber-500/25">
+                    View Portfolio
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-medium border border-white/20 transition-all">
+                    Book A Shoot
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-amber-500 font-semibold tracking-wider text-sm uppercase mb-2">My Work</h2>
+                <p class="font-serif-custom text-3xl sm:text-4xl font-bold text-white">Recent Photo Shoots</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12">
+                <button class="filter-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-amber-500 bg-amber-500 text-black transition-all" data-filter="all">All</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="weddings">Weddings</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="portrait">Portraits</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="event">Events</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="birthday">Birthdays</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="anniversary">Anniversaries</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-medium border border-gray-800 bg-dark-800 text-gray-400 hover:text-white transition-all" data-filter="vehicle">Vehicles</button>
+            </div>
+
+            <!-- Photo Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Weddings -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="weddings">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Wedding Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Weddings</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Romantic Wedding Moments</h3>
+                    </div>
+                </div>
+
+                <!-- Portrait -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Portrait Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Portrait</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Creative Portraits</h3>
+                    </div>
+                </div>
+
+                <!-- Events -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="event">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Event Photography" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Events</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Special Events & Gatherings</h3>
+                    </div>
+                </div>
+
+                <!-- Birthday -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="birthday">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80" alt="Birthday Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Birthday Shoot</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Birthday Celebrations</h3>
+                    </div>
+                </div>
+
+                <!-- Anniversary -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="anniversary">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Anniversary Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Anniversary Shoot</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Anniversary Memories</h3>
+                    </div>
+                </div>
+
+                <!-- Vehicle Shoot -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl bg-dark-800 cursor-pointer aspect-[4/5]" data-category="vehicle">
+                    <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Vehicle Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-amber-400 text-xs uppercase font-semibold tracking-wider">Vehicle Shoot</span>
+                        <h3 class="text-xl font-serif-custom text-white font-bold">Automotive Photography</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark-800 border-y border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-amber-500 font-semibold tracking-wider text-sm uppercase mb-2">Our Specializations</h2>
+                <p class="font-serif-custom text-3xl sm:text-4xl font-bold text-white">Services We Offer</p>
+                <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 1. Weddings -->
+                <div class="glass-card p-8 rounded-2xl border-amber-500/20 hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-ring"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Weddings</h3>
+                    <p class="text-gray-400 text-sm">Capturing every emotional detail on your special wedding day with elegance.</p>
+                </div>
+
+                <!-- 2. Portrait -->
+                <div class="glass-card p-8 rounded-2xl hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Portrait Shoot</h3>
+                    <p class="text-gray-400 text-sm">Outdoor & indoor portrait sessions tailored to reflect your unique personality.</p>
+                </div>
+
+                <!-- 3. Event -->
+                <div class="glass-card p-8 rounded-2xl hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-calendar-star"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Event Shoot</h3>
+                    <p class="text-gray-400 text-sm">Complete high-quality photo coverage for corporate and personal events.</p>
+                </div>
+
+                <!-- 4. Birthday -->
+                <div class="glass-card p-8 rounded-2xl hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Birthday Shoot</h3>
+                    <p class="text-gray-400 text-sm">Fun and memorable photo sessions for birthdays of all ages.</p>
+                </div>
+
+                <!-- 5. Anniversary -->
+                <div class="glass-card p-8 rounded-2xl hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Anniversary Shoot</h3>
+                    <p class="text-gray-400 text-sm">Celebrate years of togetherness with romantic couple shoots.</p>
+                </div>
+
+                <!-- 6. Vehicle Shoot -->
+                <div class="glass-card p-8 rounded-2xl hover:border-amber-500 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 text-xl mb-4">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="font-serif-custom text-xl font-bold text-white mb-2">Vehicle Shoot</h3>
+                    <p class="text-gray-400 text-sm">Cinematic and high-detail photoshoots for cars and superbikes.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-lg flex items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-gray-400 hover:text-white text-3xl focus:outline-none z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-h-[75vh] w-auto object-contain rounded-lg shadow-2xl">
+            <div class="text-center mt-4">
+                <h4 id="lightbox-title" class="font-serif-custom text-xl text-white font-bold"></h4>
+                <p id="lightbox-category" class="text-amber-400 text-sm uppercase tracking-widest mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-24 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-amber-500 font-semibold tracking-wider text-sm uppercase mb-2">Contact Us</h2>
+                    <h3 class="font-serif-custom text-3xl sm:text-4xl font-bold text-white mb-6">Book Your Photo Shoot</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Ready to capture your special moments? Get in touch with us via Call, WhatsApp, Email or Social Media!
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Phone -->
+                        <a href="tel:+94776919873" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-amber-500/50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-400 font-semibold tracking-wider">Phone / WhatsApp</h4>
+                                <p class="text-white font-semibold text-lg">+94 77 691 9873</p>
+                            </div>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:muffyzzz@gmail.com" class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-amber-500/50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-400 font-semibold tracking-wider">Email Address</h4>
+                                <p class="text-white font-semibold text-lg">muffyzzz@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- TikTok -->
+                        <div class="flex items-center space-x-4 p-4 glass-card rounded-xl hover:border-amber-500/50 transition-all">
+                            <div class="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0 text-lg">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-400 font-semibold tracking-wider">TikTok</h4>
+                                <p class="text-white font-semibold text-lg">@Woofy photography</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Booking Form -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold text-white mb-6 font-serif-custom">Send a Message</h3>
+                    <form id="booking-form" class="space-y-5">
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-300 mb-2">Your Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full bg-dark-900 border border-gray-700 focus:border-amber-500 rounded-xl px-4 py-3 text-white outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-300 mb-2">Phone Number</label>
+                            <input type="tel" required placeholder="07X XXX XXXX" class="w-full bg-dark-900 border border-gray-700 focus:border-amber-500 rounded-xl px-4 py-3 text-white outline-none transition-all">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-300 mb-2">Select Shoot Type</label>
+                            <select class="w-full bg-dark-900 border border-gray-700 focus:border-amber-500 rounded-xl px-4 py-3 text-white outline-none transition-all">
+                                <option>Weddings</option>
+                                <option>Portrait Shoot</option>
+                                <option>Event Shoot</option>
+                                <option>Birthday Shoot</option>
+                                <option>Anniversary Shoot</option>
+                                <option>Vehicle Shoot</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-semibold text-gray-300 mb-2">Message & Preferred Date</label>
+                            <textarea rows="3" placeholder="Tell us about your shoot requirements..." class="w-full bg-dark-900 border border-gray-700 focus:border-amber-500 rounded-xl px-4 py-3 text-white outline-none transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-amber-500 hover:bg-amber-400 text-black font-semibold rounded-xl transition-all shadow-lg shadow-amber-500/20">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                    <div id="form-alert" class="hidden mt-4 p-4 rounded-xl text-center text-sm font-medium"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-gray-500 text-sm">
+                &copy; <span id="year"></span> Woofy Photography. All rights reserved.
+            </p>
+            <div class="flex space-x-6 text-gray-400 text-lg">
+                <a href="https://tiktok.com" target="_blank" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            // Portfolio Filters
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-amber-500', 'text-black', 'border-amber-500');
+                        b.classList.add('bg-dark-800', 'text-gray-400', 'border-gray-800');
+                    });
+                    btn.classList.add('bg-amber-500', 'text-black', 'border-amber-500');
+                    btn.classList.remove('bg-dark-800', 'text-gray-400', 'border-gray-800');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.95)';
+                            setTimeout(() => item.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+
+            // Lightbox Modal
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCategory = document.getElementById('lightbox-category');
+            const lightboxClose = document.getElementById('lightbox-close');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    lightboxImg.src = item.querySelector('img').src;
+                    lightboxTitle.textContent = item.querySelector('h3').textContent;
+                    lightboxCategory.textContent = item.querySelector('span').textContent;
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+
+            // Booking Form Handler
+            const bookingForm = document.getElementById('booking-form');
+            const formAlert = document.getElementById('form-alert');
+
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                formAlert.textContent = "Thank you! Your booking inquiry has been sent. We will contact you shortly!";
+                formAlert.className = "mt-4 p-4 rounded-xl text-center text-sm font-medium bg-emerald-500/20 border border-emerald-500/40 text-emerald-400";
+                formAlert.classList.remove('hidden');
+                bookingForm.reset();
+                setTimeout(() => formAlert.classList.add('hidden'), 5000);
+            });
+        });
+    </script>
+</body>
+</html>
+```
